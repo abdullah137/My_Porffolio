@@ -708,25 +708,38 @@ function sendEmail() {
         $('#message').toast('show').addClass('bg-danger').removeClass('bg-success');
         $('.toast-body').html('Comments is required');
     } else {
+        const contactInfo = { name, email, subject, comments }
+        
         $.ajax({
             type: 'POST',
-            data: $("#contactForm").serialize(),
-            url:  "sendEmail.php",
+            dataType: 'json',
+            data: {
+               name: contactInfo.name,
+               email: contactInfo.email,
+               subject: contactInfo.subject,
+               comments: contactInfo.comments,
+            },
+            url:  "/contact",
             beforeSend: function() {
                 $('#submit-btn').html('<span class="spinner-border spinner-border-sm"></span> Loading..');
             },
             success: function(data) {
+
                 $('#submit-btn').html('Submit');
-                var myObj = JSON.parse(data);
-                if(myObj['status']=='Congratulation'){
+                var myObj = data;
+                if(myObj['status'] =='Congratulation'){
                     $('#message').toast('show').addClass('bg-success').removeClass('bg-danger bg-warning');
-                    $('.toast-body').html('<strong>'+ myObj['status'] +' : </strong> '+ myObj['message']);
+                    $('.toast-body').html('<strong>'+ myObj['status'] +'  </strong> '+ myObj['message']);
+                    $('#name').val('');
+                    $('#email').val('');
+                    $('#subject').val('');
+                    $('#comments').val('');
                 }else if(myObj['status']=='Error'){
                     $('#message').toast('show').addClass('bg-danger').removeClass('bg-success bg-warning');
-                    $('.toast-body').html('<strong>'+ myObj['status'] +' : </strong> '+ myObj['message']);
+                    $('.toast-body').html('<strong>'+ myObj['status'] +'  </strong> '+ myObj['message']);
                 }else if(myObj['status']=='Warning'){
                     $('#message').toast('show').addClass('bg-warning').removeClass('bg-success bg-danger');
-                    $('.toast-body').html('<strong>'+ myObj['status'] +' : </strong> '+ myObj['message']);
+                    $('.toast-body').html('<strong>'+ myObj['status'] +'  </strong> '+ myObj['message']);
                 }
             },
             error: function(xhr) {
