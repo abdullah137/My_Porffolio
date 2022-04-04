@@ -16,7 +16,7 @@ const connectDB = require('./config/db');
 // setting static folder
 app.use(express.static(path.join(__dirname, 'public')));
 
-// calling the function
+//calling the function
 connectDB();
 
 // fecth data from the request
