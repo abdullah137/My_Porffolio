@@ -3236,3 +3236,104 @@ canvas.particles-js-canvas-el {
 .language-skill ul li i{
   font-size: 12px;
 }
+
+.resume h3 i {
+  padding-right: 0.75rem;
+}
+.resume .timeline-box {
+  padding: 1rem 0;
+}
+.resume .vertical-line > div:nth-child(1) .timeline-year {
+  color: #fff;
+  background-color: #0bceaf;
+}
+.resume .vertical-line > div:nth-child(2) .timeline-year {
+  color: #fff;
+  background-color: #fbdd62;
+}
+.resume .vertical-line > div:nth-child(3) .timeline-year {
+  color: #fff;
+  background-color: #ff5380;
+}
+.resume .vertical-line > div:nth-child(4) .timeline-year {
+  color: #fff;
+  background-color: #0bceaf;
+}
+.resume .timeline-year {
+  display: inline-block;
+  padding: 2px 6px;
+  border-radius: 6px;
+}
+.timeline-content p {
+  margin-bottom: 0 !important;
+}
+.resume .timeline-year {
+  font-size: 15px;
+  font-weight: 400;
+  margin-bottom: 0.25rem;
+}
+.vertical-line{
+  position: relative;
+}
+.vertical-line::after{
+  content: '';
+  position: absolute;
+  left: 50%;
+  top: -5%;
+  width: 1px;
+  height: 115%;
+}
+.boxes [class^="col-"] {
+  position: relative;
+}
+.boxes [class^="col-"]::after{
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  height: 1px;
+}
+.boxes [class^="col-"]:nth-last-child(-n+2)::after{
+  display: none;
+}
+.vertical-line::after {
+  background: linear-gradient(to top, rgba(185, 143, 95, 0.15), #0bceaf, rgba(185, 143, 95, 0.15));
+}
+.boxes [class^="col-"]:nth-child(2n)::after {
+  background: linear-gradient(to right, #0bceaf, rgba(185, 143, 95, 0.15));
+}
+.boxes [class^="col-"]:nth-child(1n)::after {
+  background: linear-gradient(to left, #0bceaf, rgba(185, 143, 95, 0.15));
+}
+.vertical-line::after {
+  background: linear-gradient(to top, rgba(185, 143, 95, 0.15), #0bceaf, rgba(185, 143, 95, 0.15));
+}
+.subtitle {
+  position: relative;
+  margin-bottom: 24px;
+  padding-bottom: 16px;
+  font-size: 28px;
+  font-weight: 400;
+  color: #0bceaf;
+}
+.subtitle::before{
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  height: 5px;
+  width: 55px;
+  border-radius: 8px;
+  background-color: #0bceaf;
+}
+.subtitle::after{
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 2px;
+  height: 1px;
+  width: 100%;
+  max-width: 255px;
+  background:linear-gradient(90deg, #0bceaf 40%, rgba(13, 202, 145, 0) 100%)
+}
