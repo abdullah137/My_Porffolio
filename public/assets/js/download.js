@@ -1,6 +1,6 @@
 function download() {
     axios({
-          url: 'http://localhost:3000/assets/files/Resume.pdf',
+          url: 'https://my-portfolio-ksdv.onrender.com/assets/files/Resume.pdf',
           method: 'GET',
           responseType: 'blob'
     })
